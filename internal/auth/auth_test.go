@@ -12,7 +12,7 @@ func TestGetAPIKey_NoAuthorizationHeader(t *testing.T) {
 	expectedErr := ErrNoAuthHeaderIncluded
 
 	apiKey, err := GetAPIKey(headers)
-	if apiKey != expectedKey {
+	if apiKey == expectedKey {
 		t.Errorf("expected %v, got %v", expectedKey, apiKey)
 	}
 	if !errors.Is(err, expectedErr) {
